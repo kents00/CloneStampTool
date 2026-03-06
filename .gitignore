@@ -1,0 +1,20 @@
+# Default ignored files
+/bin/
+/obj/
+
+# Visual Studio files
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# Mac/Linux generated files
+.DS_Store
+Thumbs.db
+
+# User Secrets
+secrets.json
+
+# If using frontend packages like npm
+node_modules/

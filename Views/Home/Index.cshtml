@@ -1,0 +1,61 @@
+@{
+    ViewData["Title"] = "Workspace";
+}
+
+<div class="workspace-container">
+    <aside class="toolbar glass-panel">
+        <div class="tool-section">
+            <h3><i class="fa-solid fa-image"></i> Image</h3>
+            <label class="btn btn-primary" for="imageUpload">
+                <i class="fa-solid fa-upload"></i> Upload
+            </label>
+            <input type="file" id="imageUpload" accept="image/*" style="display: none;" />
+            <button id="downloadBtn" class="btn btn-secondary" disabled>
+                <i class="fa-solid fa-download"></i> Download
+            </button>
+        </div>
+
+        <div class="tool-section">
+            <h3><i class="fa-solid fa-toolbox"></i> Tools</h3>
+            <div class="tool-toggle active" id="cloneStampToolBtn">
+                <i class="fa-solid fa-stamp"></i> Clone Stamp
+            </div>
+            <p class="tool-hint" id="toolHint">Shift+Click to set source</p>
+        </div>
+
+        <div class="tool-section">
+            <h3><i class="fa-solid fa-sliders"></i> Brush</h3>
+            <div class="slider-group">
+                <label for="brushSize">Size: <span id="brushSizeVal">20</span>px</label>
+                <input type="range" id="brushSize" min="1" max="100" value="20" />
+            </div>
+            <div class="slider-group">
+                <label for="brushHardness">Hardness: <span id="brushHardnessVal">50</span>%</label>
+                <input type="range" id="brushHardness" min="0" max="100" value="50" />
+            </div>
+        </div>
+
+        <div class="tool-section actions">
+             <button id="undoBtn" class="btn btn-icon" title="Undo" disabled><i class="fa-solid fa-rotate-left"></i></button>
+             <button id="redoBtn" class="btn btn-icon" title="Redo" disabled><i class="fa-solid fa-rotate-right"></i></button>
+             <button id="clearBtn" class="btn btn-icon btn-danger" title="Clear Canvas" disabled><i class="fa-solid fa-trash"></i></button>
+        </div>
+    </aside>
+
+    <section class="canvas-area">
+        <div class="canvas-wrapper glass-panel" id="canvasWrapper">
+            <canvas id="primaryCanvas" width="800" height="600"></canvas>
+            <div id="brushCursor" class="brush-cursor"></div>
+            <div id="noImagePrompt" class="empty-state">
+                <i class="fa-regular fa-image"></i>
+                <p>Upload an image to start cloning</p>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div id="toastNotification" class="toast-notification">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span id="toastMessage"></span>
+        </div>
+    </section>
+</div>
